@@ -1,0 +1,22 @@
+form {
+  position: relative;
+  width: 300px;
+  padding: 15px;
+}
+
+.container {
+  border: 1px solid #2a2a2a;
+}
+
+input {
+  width: 100%;
+}
+
+input[type] {
+  margin: 10px 0;
+}
+
+button:hover,
+button:focus {
+  background-color: #1976d2;
+}

@@ -1,0 +1,11 @@
+.filter {
+  margin: auto;
+  max-width: 500px;
+  text-align: start;
+  padding: 0;
+}
+
+.filterInput {
+  display: flex;
+  width: 58%;
+}
