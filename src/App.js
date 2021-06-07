@@ -1,9 +1,5 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
-// import style from './App.module.css';
-// import ContactForm from './components/ContactForm/ContactForm';
-// import ContactList from './components/ContactList/ContactList';
-// import Filter from './components/Filter/Filter';
 import AppBar from './components/AppBar/AppBar';
 import routes from './routes';
 
@@ -11,14 +7,14 @@ const HomePage = lazy(() =>
   import('./views/HomePage/HomePage.js' /* webpackChunkName: "home-page" */),
 );
 const Register = lazy(() =>
-  import('./views/Register/Register.js' /* webpackChunkName: "movies-page" */),
+  import('./views/Register/Register.js' /* webpackChunkName: "register" */),
 );
 const Login = lazy(() =>
-  import('./views/Login/Login.js' /* webpackChunkName: "not-found-view" */),
+  import('./views/Login/Login.js' /* webpackChunkName: "login" */),
 );
-const Contacts = lazy(() =>
+const ContactsView = lazy(() =>
   import(
-    './views/Contacts/Contacts.js' /* webpackChunkName: "movie-details-page" */
+    './views/ContactsView/ContactsView.js' /* webpackChunkName: "contacts-view" */
   ),
 );
 
@@ -30,17 +26,9 @@ const App = () => (
         <Route exact path={routes.home} component={HomePage} />
         <Route path={routes.register} component={Register} />
         <Route path={routes.login} component={Login} />
-        <Route path={routes.contacts} component={Contacts} />
+        <Route path={routes.contacts} component={ContactsView} />
       </Switch>
     </Suspense>
-    {/* <div className={style.phonebook}>
-      <h1>Phonebook</h1>
-      <ContactForm />
-
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList />
-    </div> */}
   </>
 );
 

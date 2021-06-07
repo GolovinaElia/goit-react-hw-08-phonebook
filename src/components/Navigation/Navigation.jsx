@@ -14,7 +14,7 @@ const Navigation = () => {
         Home
       </NavLink>
       <NavLink
-        to={routes.contacts}
+        to={routes.contactsView}
         className="NavLink"
         activeClassName="NavLinkActive"
       >

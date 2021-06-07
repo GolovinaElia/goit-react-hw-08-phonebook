@@ -2,7 +2,7 @@ const routes = {
   home: '/',
   register: '/register',
   login: '/login',
-  contacts: './contacts',
+  contactsView: './contactsView',
 };
 
 export default routes;
