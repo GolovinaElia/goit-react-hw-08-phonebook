@@ -7,14 +7,14 @@ const AuthNav = () => {
     <nav className={style.itemLink}>
       <NavLink
         exact
-        to={routes.register}
+        to={routes.registerView}
         className="NavLink"
         activeClassName="NavLinkActive"
       >
         Register
       </NavLink>
       <NavLink
-        to={routes.login}
+        to={routes.loginView}
         className="NavLink"
         activeClassName="NavLinkActive"
       >

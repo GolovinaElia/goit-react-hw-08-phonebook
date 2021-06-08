@@ -6,11 +6,13 @@ import routes from './routes';
 const HomePage = lazy(() =>
   import('./views/HomePage/HomePage.js' /* webpackChunkName: "home-page" */),
 );
-const Register = lazy(() =>
-  import('./views/Register/Register.js' /* webpackChunkName: "register" */),
+const RegisterView = lazy(() =>
+  import(
+    './views/RegisterView/RegisterView.js' /* webpackChunkName: "register-view" */
+  ),
 );
-const Login = lazy(() =>
-  import('./views/Login/Login.js' /* webpackChunkName: "login" */),
+const LoginView = lazy(() =>
+  import('./views/LoginView/LoginView.js' /* webpackChunkName: "login-view" */),
 );
 const ContactsView = lazy(() =>
   import(
@@ -24,9 +26,9 @@ const App = () => (
     <Suspense fallback={<h1>Loading...</h1>}>
       <Switch>
         <Route exact path={routes.home} component={HomePage} />
-        <Route path={routes.register} component={Register} />
-        <Route path={routes.login} component={Login} />
-        <Route path={routes.contacts} component={ContactsView} />
+        <Route path={routes.registerView} component={RegisterView} />
+        <Route path={routes.loginView} component={LoginView} />
+        <Route path={routes.contactsView} component={ContactsView} />
       </Switch>
     </Suspense>
   </>

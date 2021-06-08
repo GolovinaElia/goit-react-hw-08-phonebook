@@ -1,7 +1,7 @@
 const routes = {
   home: '/',
-  register: '/register',
-  login: '/login',
+  registerView: '/registerView',
+  loginView: '/loginView',
   contactsView: './contactsView',
 };
 
