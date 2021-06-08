@@ -26,6 +26,7 @@ class RegisterView extends Component {
   };
 
   render() {
+    const { name, email, password } = this.state;
     return (
       <div className={style.container}>
         <h1 className={style.title}>Register Page</h1>
@@ -40,7 +41,7 @@ class RegisterView extends Component {
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
               required
-              // value={this.state.name}
+              value={name}
               onChange={this.handleChange}
             />
           </label>
@@ -52,8 +53,8 @@ class RegisterView extends Component {
               autoComplete="off"
               name="email"
               // title="Название электронной почты должно состоять из букв, цифр и может содержать пробелы, тире, круглые скобки и должно содержать @"
-              required
-              // value={this.state.email}
+              // required
+              value={email}
               onChange={this.handleChange}
             />
           </label>
@@ -65,8 +66,8 @@ class RegisterView extends Component {
               autoComplete="off"
               name="password"
               // title="Пароль должен быть не меньше 6 символов, состоять из букв нижнего регистра, букв верхнего регистра, цифр и не должен совпадать с именем и электронной почтой"
-              required
-              // value={this.state.password}
+              // required
+              value={password}
               onChange={this.handleChange}
             />
           </label>

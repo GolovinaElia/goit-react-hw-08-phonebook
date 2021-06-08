@@ -3,16 +3,16 @@ import { createReducer } from '@reduxjs/toolkit';
 import {
   // registerRequest,
   registerSuccess,
-  // registerError,
+  registerError,
   // loginRequest,
   // loginSuccess,
-  // loginError,
+  loginError,
   // logoutRequest,
   // logoutSuccess,
-  // logoutError,
+  logoutError,
   // getCurrentUserRequest,
   // getCurrentUserSuccess,
-  // getCurrentUserError,
+  getCurrentUserError,
 } from './auth-actions';
 
 const intialUserState = { name: null, email: null };
@@ -25,15 +25,15 @@ const token = createReducer(null, {
   [registerSuccess]: (_, { payload }) => payload.token,
 });
 
-// const error = createReducer(null, {
-//   [registerError]: () => alert('Something went wrong, please try again!'),
-//   [loginError]: () => alert('Something went wrong, please try again!'),
-//   [logoutError]: () => alert('Something went wrong, please try again!'),
-//   [getCurrentUserError]: () => alert('Something went wrong, please try again!'),
-// });
+const error = createReducer(null, {
+  [registerError]: () => alert('Something went wrong, please try again!'),
+  [loginError]: () => alert('Something went wrong, please try again!'),
+  [logoutError]: () => alert('Something went wrong, please try again!'),
+  [getCurrentUserError]: () => alert('Something went wrong, please try again!'),
+});
 
 export default combineReducers({
   user,
   token,
-  // error,
+  error,
 });

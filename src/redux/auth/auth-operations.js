@@ -24,7 +24,7 @@ const register = credentials => async dispatch => {
     const response = axios.post('./users/signup', credentials);
     dispatch(registerSuccess(response.data));
   } catch (error) {
-    dispatch(registerError(error));
+    dispatch(registerError(error.message));
   }
 };
 
