@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import style from './RegisterView.module.css';
-// import { connect } from 'react-redux';
-// import { authOperations } from '../../redux/auth';
+import { connect } from 'react-redux';
+import { authOperations } from '../../redux/auth';
 
 class RegisterView extends Component {
   state = {
@@ -16,6 +16,7 @@ class RegisterView extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    this.props.onRegister(this.state);
     this.setState({ name: '', email: '', password: '' });
     this.reset();
   };
@@ -49,11 +50,10 @@ class RegisterView extends Component {
               className={style.input}
               type="email"
               autoComplete="off"
-              name="number"
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$\?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-              title="Название электронной почты должно состоять из букв, цифр и может содержать пробелы, тире, круглые скобки и должно сожержать @"
+              name="email"
+              // title="Название электронной почты должно состоять из букв, цифр и может содержать пробелы, тире, круглые скобки и должно содержать @"
               required
-              // value={this.state.number}
+              // value={this.state.email}
               onChange={this.handleChange}
             />
           </label>
@@ -61,13 +61,12 @@ class RegisterView extends Component {
             Password
             <input
               className={style.input}
-              type="email"
+              type="password"
               autoComplete="off"
-              name="number"
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$\?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-              title="Пароль должен быть не меньше 6 символов, состоять из букв нижнего регистра, букв верхнего регистра, цифр и не должен совпадать с именем и электронной почтой"
+              name="password"
+              // title="Пароль должен быть не меньше 6 символов, состоять из букв нижнего регистра, букв верхнего регистра, цифр и не должен совпадать с именем и электронной почтой"
               required
-              // value={this.state.number}
+              // value={this.state.password}
               onChange={this.handleChange}
             />
           </label>
@@ -80,8 +79,8 @@ class RegisterView extends Component {
   }
 }
 
-// const mapDispatchToProps = dispatch => ({
-//   onSubmit: data => dispatch(authOperations.register(data)),
-// });
+const mapDispatchToProps = {
+  onRegister: authOperations.register,
+};
 
-export default RegisterView;
+export default connect(null, mapDispatchToProps)(RegisterView);
