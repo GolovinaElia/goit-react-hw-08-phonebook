@@ -5,31 +5,34 @@ import {
   registerSuccess,
   registerError,
   // loginRequest,
-  // loginSuccess,
+  loginSuccess,
   loginError,
   // logoutRequest,
-  // logoutSuccess,
+  logoutSuccess,
   logoutError,
   // getCurrentUserRequest,
   // getCurrentUserSuccess,
-  getCurrentUserError,
+  // getCurrentUserError,
 } from './auth-actions';
 
 const intialUserState = { name: null, email: null };
 
 const user = createReducer(intialUserState, {
   [registerSuccess]: (_, { payload }) => payload.user,
+  [loginSuccess]: (_, { payload }) => payload.user,
+  [logoutSuccess]: () => intialUserState,
 });
 
 const token = createReducer(null, {
   [registerSuccess]: (_, { payload }) => payload.token,
+  [loginSuccess]: (_, { payload }) => payload.token,
+  [logoutSuccess]: () => null,
 });
 
 const error = createReducer(null, {
-  [registerError]: () => alert('Something went wrong, please try again!'),
-  [loginError]: () => alert('Something went wrong, please try again!'),
-  [logoutError]: () => alert('Something went wrong, please try again!'),
-  [getCurrentUserError]: () => alert('Something went wrong, please try again!'),
+  [registerError]: (_, { payload }) => payload,
+  [loginError]: (_, { payload }) => payload,
+  [logoutError]: (_, { payload }) => payload,
 });
 
 export default combineReducers({

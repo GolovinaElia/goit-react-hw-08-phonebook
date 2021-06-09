@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import style from './LoginView.module.css';
+import { connect } from 'react-redux';
+import { authOperations } from '../../redux/auth';
 
 class LoginView extends Component {
   state = {
@@ -14,6 +16,7 @@ class LoginView extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    this.props.onLogin(this.state);
     this.setState({ email: '', password: '' });
     this.reset();
   };
@@ -23,6 +26,7 @@ class LoginView extends Component {
   };
 
   render() {
+    const { email, password } = this.state;
     return (
       <div className={style.container}>
         <h1 className={style.title}>Login Page</h1>
@@ -34,10 +38,9 @@ class LoginView extends Component {
               type="email"
               autoComplete="off"
               name="email"
-              // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$\?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-              title="Название электронной почты должно состоять из букв, цифр и может содержать пробелы, тире, круглые скобки и должно сожержать @"
+              title="Название электронной почты должно состоять из букв, цифр и должно сожержать @"
               required
-              // value={this.state.number}
+              value={email}
               onChange={this.handleChange}
             />
           </label>
@@ -48,10 +51,9 @@ class LoginView extends Component {
               type="password"
               autoComplete="off"
               name="password"
-              // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$\?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Пароль должен быть не меньше 6 символов, состоять из букв нижнего регистра, букв верхнего регистра, цифр и не должен совпадать с именем и электронной почтой"
               required
-              // value={this.state.number}
+              value={password}
               onChange={this.handleChange}
             />
           </label>
@@ -63,4 +65,7 @@ class LoginView extends Component {
     );
   }
 }
-export default LoginView;
+const mapDispatchToProps = {
+  onLogin: authOperations.logIn,
+};
+export default connect(null, mapDispatchToProps)(LoginView);

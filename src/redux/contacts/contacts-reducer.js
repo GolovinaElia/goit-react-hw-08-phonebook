@@ -36,9 +36,9 @@ const filter = createReducer('', {
   [changeFilter]: (_, { payload }) => payload,
 });
 const error = createReducer(null, {
-  [fetchContactsError]: () => alert('Something went wrong, please try again!'),
-  [addContactError]: () => alert('Something went wrong, please try again!'),
-  [deleteContactError]: () => alert('Something went wrong, please try again!'),
+  [fetchContactsError]: (_, { payload }) => payload,
+  [addContactError]: (_, { payload }) => payload,
+  [deleteContactError]: (_, { payload }) => payload,
 });
 
 export default combineReducers({

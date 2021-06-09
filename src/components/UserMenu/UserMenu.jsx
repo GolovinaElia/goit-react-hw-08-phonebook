@@ -1,14 +1,24 @@
+import { connect } from 'react-redux';
 import style from './UserMenu.module.css';
+import { authSelectors, authOperations } from '../../redux/auth';
 
-const UserMenu = ({ email, name, onLogout }) => {
+const UserMenu = ({ name, email, onLogout }) => {
   return (
     <div className={style.container}>
-      <a href="mailto:info@devstudio.com">{email}</a>
-      <span>Welcome, {name}</span>
+      <span>{email}</span>
       <button className={style.button} type="button" onClick={onLogout}>
         Log out
       </button>
     </div>
   );
 };
-export default UserMenu;
+
+const mapStateToProps = state => ({
+  email: authSelectors.getUseremail(state),
+});
+
+const mapDispatchToProps = {
+  onLogout: authOperations.logOut,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);

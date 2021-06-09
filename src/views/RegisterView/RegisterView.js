@@ -52,8 +52,8 @@ class RegisterView extends Component {
               type="email"
               autoComplete="off"
               name="email"
-              // title="Название электронной почты должно состоять из букв, цифр и может содержать пробелы, тире, круглые скобки и должно содержать @"
-              // required
+              title="Название электронной почты должно состоять из букв, цифр и должно содержать @"
+              required
               value={email}
               onChange={this.handleChange}
             />
@@ -65,8 +65,8 @@ class RegisterView extends Component {
               type="password"
               autoComplete="off"
               name="password"
-              // title="Пароль должен быть не меньше 6 символов, состоять из букв нижнего регистра, букв верхнего регистра, цифр и не должен совпадать с именем и электронной почтой"
-              // required
+              title="Пароль должен быть не меньше 6 символов, состоять из букв нижнего регистра, букв верхнего регистра, цифр и не должен совпадать с именем или электронной почтой"
+              required
               value={password}
               onChange={this.handleChange}
             />
