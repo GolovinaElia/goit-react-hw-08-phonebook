@@ -1,10 +1,11 @@
 import React, { Suspense, lazy, Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AppBar from './components/AppBar/AppBar';
 import routes from './routes';
 import { authOperations } from './redux/auth';
 import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
 
 const RegisterView = lazy(() =>
   import(
@@ -30,8 +31,8 @@ class App extends Component {
         <AppBar />
         <Suspense fallback={<h1>Loading...</h1>}>
           <Switch>
-            <Route path={routes.registerView} component={RegisterView} />
-            <Route path={routes.loginView} component={LoginView} />
+            <PublicRoute path={routes.registerView} component={RegisterView} />
+            <PublicRoute path={routes.loginView} component={LoginView} />
             <PrivateRoute path={routes.contacts} component={ContactsView} />
           </Switch>
         </Suspense>
