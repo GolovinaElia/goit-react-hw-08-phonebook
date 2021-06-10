@@ -1,7 +1,10 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 import AppBar from './components/AppBar/AppBar';
 import routes from './routes';
+import { authOperations } from './redux/auth';
+import PrivateRoute from './components/PrivateRoute';
 
 const RegisterView = lazy(() =>
   import(
@@ -17,17 +20,28 @@ const ContactsView = lazy(() =>
   ),
 );
 
-const App = () => (
-  <>
-    <AppBar />
-    <Suspense fallback={<h1>Loading...</h1>}>
-      <Switch>
-        <Route path={routes.registerView} component={RegisterView} />
-        <Route path={routes.loginView} component={LoginView} />
-        <Route path={routes.contacts} component={ContactsView} />
-      </Switch>
-    </Suspense>
-  </>
-);
+class App extends Component {
+  componentDidMount() {
+    this.props.onGetCurrentUser();
+  }
+  render() {
+    return (
+      <>
+        <AppBar />
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <Switch>
+            <Route path={routes.registerView} component={RegisterView} />
+            <Route path={routes.loginView} component={LoginView} />
+            <PrivateRoute path={routes.contacts} component={ContactsView} />
+          </Switch>
+        </Suspense>
+      </>
+    );
+  }
+}
 
-export default App;
+const mapDispatchToProps = {
+  onGetCurrentUser: authOperations.getCurrentUser,
+};
+
+export default connect(null, mapDispatchToProps)(App);
