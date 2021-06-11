@@ -1,4 +1,4 @@
-const getIsAuthenticated = state => state.auth.token;
+const getIsAuthenticated = state => state.auth.isAuthenticated;
 
 const getUseremail = state => state.auth.user.email;
 

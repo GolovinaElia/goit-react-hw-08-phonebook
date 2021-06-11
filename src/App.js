@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import AppBar from './components/AppBar/AppBar';
 import routes from './routes';
 import { authOperations } from './redux/auth';
-import PrivateRoute from './components/PrivateRoute';
-import PublicRoute from './components/PublicRoute';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import PublicRoute from './components/PublicRoute/PublicRoute';
 
 const RegisterView = lazy(() =>
   import(
@@ -31,9 +31,23 @@ class App extends Component {
         <AppBar />
         <Suspense fallback={<h1>Loading...</h1>}>
           <Switch>
-            <PublicRoute path={routes.registerView} component={RegisterView} />
-            <PublicRoute path={routes.loginView} component={LoginView} />
-            <PrivateRoute path={routes.contacts} component={ContactsView} />
+            <PublicRoute
+              path={routes.registerView}
+              component={RegisterView}
+              restricted
+              redirectTo={routes.contactsView}
+            />
+            <PublicRoute
+              path={routes.loginView}
+              component={LoginView}
+              restricted
+              redirectTo={routes.contactsView}
+            />
+            <PrivateRoute
+              path={routes.contactsView}
+              component={ContactsView}
+              redirectTo={routes.loginView}
+            />
           </Switch>
         </Suspense>
       </>
