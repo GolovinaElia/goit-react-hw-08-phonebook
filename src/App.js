@@ -6,6 +6,7 @@ import routes from './routes';
 import { authOperations } from './redux/auth';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import PublicRoute from './components/PublicRoute/PublicRoute';
+import Copyright from './components/Material-UI/Copyright';
 
 const RegisterView = lazy(() =>
   import(
@@ -50,6 +51,7 @@ class App extends Component {
             />
           </Switch>
         </Suspense>
+        <Copyright />
       </>
     );
   }
