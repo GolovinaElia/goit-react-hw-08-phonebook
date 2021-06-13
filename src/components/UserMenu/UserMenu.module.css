@@ -1,4 +1,13 @@
-.button{
+.container {
+  display: flex;
+  justify-content: end;
+  align-items: baseline;
+}
+
+.button {
+  width: 75px;
+  height: 25px;
   margin: 20px;
+  font-size: small;
   text-align: center;
 }

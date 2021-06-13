@@ -36,6 +36,7 @@ class RegisterView extends Component {
             <input
               className={style.input}
               type="text"
+              autoFocus
               placeholder="Name"
               autoComplete="off"
               name="name"

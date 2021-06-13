@@ -36,6 +36,7 @@ class LoginView extends Component {
             <input
               className={style.input}
               type="email"
+              autoFocus
               placeholder="Email"
               autoComplete="off"
               name="email"
