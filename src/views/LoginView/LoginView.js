@@ -31,11 +31,12 @@ class LoginView extends Component {
       <div className={style.container}>
         <h1 className={style.title}>Login Page</h1>
         <form className={style.containerForm} onSubmit={this.handleSubmit}>
-          <label className={style.containerLabel}>
-            Email
+          <div className={style.blockinput}>
+            <i className={style.icon}></i>
             <input
               className={style.input}
               type="email"
+              placeholder="Email"
               autoComplete="off"
               name="email"
               title="Название электронной почты должно состоять из букв, цифр и должно сожержать @"
@@ -43,11 +44,12 @@ class LoginView extends Component {
               value={email}
               onChange={this.handleChange}
             />
-          </label>
-          <label className={style.containerLabel}>
-            Password
+          </div>
+          <div className={style.blockinput}>
+            <i className={style.icon}></i>
             <input
               className={style.input}
+              placeholder="Password"
               type="password"
               autoComplete="off"
               name="password"
@@ -56,7 +58,7 @@ class LoginView extends Component {
               value={password}
               onChange={this.handleChange}
             />
-          </label>
+          </div>
           <button className={style.button} type="submit">
             Login
           </button>
