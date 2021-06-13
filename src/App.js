@@ -7,19 +7,10 @@ import { authOperations } from './redux/auth';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import PublicRoute from './components/PublicRoute/PublicRoute';
 
-const RegisterView = lazy(() =>
-  import(
-    './views/RegisterView/RegisterView.js' /* webpackChunkName: "register-view" */
-  ),
-);
-const LoginView = lazy(() =>
-  import('./views/LoginView/LoginView.js' /* webpackChunkName: "login-view" */),
-);
-const ContactsView = lazy(() =>
-  import(
-    './views/ContactsView/ContactsView.js' /* webpackChunkName: "contacts-view" */
-  ),
-);
+const HomeView = lazy(() => import('./views/HomeView/HomeView.js'));
+const RegisterView = lazy(() => import('./views/RegisterView/RegisterView.js'));
+const LoginView = lazy(() => import('./views/LoginView/LoginView.js'));
+const ContactsView = lazy(() => import('./views/ContactsView/ContactsView.js'));
 
 class App extends Component {
   componentDidMount() {
@@ -32,6 +23,7 @@ class App extends Component {
         <AppBar />
         <Suspense fallback={<h1>Loading...</h1>}>
           <Switch>
+            <PublicRoute exact path={routes.homeView} component={HomeView} />
             <PublicRoute
               path={routes.registerView}
               component={RegisterView}

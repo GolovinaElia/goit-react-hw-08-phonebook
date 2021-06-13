@@ -1,10 +1,6 @@
 .container {
   height: 568px;
-  background-image: linear-gradient(
-      rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4)
-    ),
-    url(../../components/Images/login.jpg);
+  background: #4e535b;
   padding-top: 35px;
 }
 
@@ -42,6 +38,7 @@ input[type] {
 }
 
 input {
+  padding-left: 16px;
   width: 100%;
   background: transparent;
   border: 0;
@@ -70,7 +67,6 @@ input:focus {
 }
 
 .blockinput i {
-  padding-right: 10px;
   color: #b1b3b7;
   text-shadow: 0 1px 0 #fff;
 }
@@ -113,8 +109,3 @@ button:active {
     rgba(107, 198, 186, 1) 100%
   );
 }
-
-/* button:hover,
-button:focus {
-  background-color: #1976d2;
-} */

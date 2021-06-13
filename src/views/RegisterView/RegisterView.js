@@ -31,11 +31,12 @@ class RegisterView extends Component {
       <div className={style.container}>
         <h1 className={style.title}>Register Page</h1>
         <form className={style.containerForm} onSubmit={this.handleSubmit}>
-          <label className={style.containerLabel}>
-            Name
+          <div className={style.blockinput}>
+            <i className={style.icon}></i>
             <input
               className={style.input}
               type="text"
+              placeholder="Name"
               autoComplete="off"
               name="name"
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -44,12 +45,13 @@ class RegisterView extends Component {
               value={name}
               onChange={this.handleChange}
             />
-          </label>
-          <label className={style.containerLabel}>
-            Email
+          </div>
+          <div className={style.blockinput}>
+            <i className={style.icon}></i>
             <input
               className={style.input}
               type="email"
+              placeholder="Email"
               autoComplete="off"
               name="email"
               title="Название электронной почты должно состоять из букв, цифр и должно содержать @"
@@ -57,12 +59,13 @@ class RegisterView extends Component {
               value={email}
               onChange={this.handleChange}
             />
-          </label>
-          <label className={style.containerLabel}>
-            Password
+          </div>
+          <div className={style.blockinput}>
+            <i className={style.icon}></i>
             <input
               className={style.input}
               type="password"
+              placeholder="Password"
               autoComplete="off"
               name="password"
               title="Пароль должен быть не меньше 6 символов, состоять из букв нижнего регистра, букв верхнего регистра, цифр и не должен совпадать с именем или электронной почтой"
@@ -70,7 +73,7 @@ class RegisterView extends Component {
               value={password}
               onChange={this.handleChange}
             />
-          </label>
+          </div>
           <button className={style.button} type="submit">
             Register
           </button>

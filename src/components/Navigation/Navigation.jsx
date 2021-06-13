@@ -6,7 +6,14 @@ import { connect } from 'react-redux';
 
 const Navigation = ({ isAuthenticated }) => {
   return (
-    <nav>
+    <nav className={style.itemLink}>
+      <NavLink
+        to={routes.homeView}
+        className="NavLink"
+        activeClassName="NavLinkActive"
+      >
+        Home
+      </NavLink>
       {isAuthenticated && (
         <nav className={style.itemLink}>
           <NavLink

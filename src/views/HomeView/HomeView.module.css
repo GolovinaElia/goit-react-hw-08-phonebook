@@ -1,0 +1,23 @@
+.container {
+  height: 568px;
+  background-image: linear-gradient(
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+    ),
+    url(../../components/Images/img.jpg);
+  background-size: 100%;
+  padding-top: 35px;
+}
+
+.title {
+  font-weight: bold;
+  margin-top: 65px;
+  text-align: center;
+  color: #362224;
+}
+
+.item {
+  text-align: center;
+  font-weight: bold;
+  color: #311d1d;
+}
