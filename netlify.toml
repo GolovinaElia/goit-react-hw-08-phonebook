@@ -1,7 +1,7 @@
 [build]
 publish = "build"
 
-[[redirect]]
-from = "/"
+[[redirects]]
+from = "/*"
 to = "/index.html"
 status = 200
