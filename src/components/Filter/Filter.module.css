@@ -6,6 +6,27 @@
 }
 
 .filterInput {
-  display: flex;
-  width: 58%;
+  text-align: left;
+  background: #e5e7e9;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: inset 0 0 3px #65686e;
+  border-bottom: 1px solid #fff;
+}
+
+.filterInput {
+  padding-left: 16px;
+  max-height: 35px;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  line-height: 3.6em;
+  box-sizing: border-box;
+  color: #71747a;
+  font-family: 'Open Sans', Arial, sans-serif;
+  text-shadow: 0 1px 0 #fff;
+}
+
+.filterInput:focus {
+  outline: none;
 }

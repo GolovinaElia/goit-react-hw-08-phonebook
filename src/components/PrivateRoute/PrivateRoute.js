@@ -1,6 +1,7 @@
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
+import PropTypes from 'prop-types';
 
 const PrivateRoute = ({
   component: Component,
@@ -19,5 +20,12 @@ const PrivateRoute = ({
 const mapStateToProps = state => ({
   isAuthenticated: authSelectors.getIsAuthenticated(state),
 });
+
+PrivateRoute.propTypes = {
+  component: PropTypes.object.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+  redirectTo: PropTypes.string.isRequired,
+  routeProps: PropTypes.string,
+};
 
 export default connect(mapStateToProps)(PrivateRoute);

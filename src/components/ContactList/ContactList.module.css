@@ -5,6 +5,11 @@
   font-weight: 500;
 }
 
+.contactsForm {
+  display: flex;
+  align-items: baseline;
+}
+
 .button {
   width: 75px;
   height: 25px;

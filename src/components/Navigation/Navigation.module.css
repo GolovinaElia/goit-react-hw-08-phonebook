@@ -1,5 +1,14 @@
 .itemLink {
-  /* display: flex;
-  justify-content: start; */
+  display: flex;
   align-items: baseline;
+}
+
+.NavLink {
+  margin: 20px;
+  font-size: 18px;
+  color: #2a2a2a;
+}
+
+.NavLinkActive {
+  color: #1c4086;
 }

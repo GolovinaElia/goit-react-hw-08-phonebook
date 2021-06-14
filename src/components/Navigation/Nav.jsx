@@ -3,14 +3,16 @@ import routes from '../../routes';
 import style from './Navigation.module.css';
 import { authSelectors } from '../../redux/auth';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const Navigation = ({ isAuthenticated }) => {
+const Nav = ({ isAuthenticated }) => {
   return (
     <nav className={style.itemLink}>
       <NavLink
+        exact
         to={routes.homeView}
-        className="NavLink"
-        activeClassName="NavLinkActive"
+        className={style.NavLink}
+        activeClassName={style.NavLinkActive}
       >
         Home
       </NavLink>
@@ -18,8 +20,8 @@ const Navigation = ({ isAuthenticated }) => {
         <nav className={style.itemLink}>
           <NavLink
             to={routes.contactsView}
-            className="NavLink"
-            activeClassName="NavLinkActive"
+            className={style.NavLink}
+            activeClassName={style.NavLinkActive}
           >
             Contacts
           </NavLink>
@@ -33,4 +35,8 @@ const mapStateToProps = state => ({
   isAuthenticated: authSelectors.getIsAuthenticated(state),
 });
 
-export default connect(mapStateToProps)(Navigation);
+Nav.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
+};
+
+export default connect(mapStateToProps)(Nav);

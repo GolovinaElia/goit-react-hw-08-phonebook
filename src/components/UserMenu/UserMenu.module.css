@@ -1,8 +1,7 @@
-/* .container {
+.container {
   display: flex;
-  justify-content: end;
   align-items: baseline;
-} */
+}
 
 .button {
   width: 75px;

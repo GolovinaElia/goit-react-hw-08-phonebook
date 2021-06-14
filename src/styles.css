@@ -19,16 +19,6 @@ img {
   height: 400px;
 }
 
-.NavLink {
-  margin: 20px;
-  font-size: 18px;
-  color: #2a2a2a;
-}
-
-.NavLinkActive {
-  color: rgb(255, 0, 0);
-}
-
 button {
   text-align: center;
   margin-top: 20px;

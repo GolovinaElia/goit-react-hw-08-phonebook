@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import routes from '../../routes';
-import style from './AuthNav.module.css';
+import style from './Navigation.module.css';
 
 const AuthNav = () => {
   return (
@@ -8,15 +8,15 @@ const AuthNav = () => {
       <NavLink
         exact
         to={routes.registerView}
-        className="NavLink"
-        activeClassName="NavLinkActive"
+        className={style.NavLink}
+        activeClassName={style.NavLinkActive}
       >
         Register
       </NavLink>
       <NavLink
         to={routes.loginView}
-        className="NavLink"
-        activeClassName="NavLinkActive"
+        className={style.NavLink}
+        activeClassName={style.NavLinkActive}
       >
         Login
       </NavLink>

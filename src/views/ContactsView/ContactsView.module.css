@@ -1,8 +1,12 @@
 .phonebook {
   margin: auto;
   max-width: 500px;
+  text-align: center;
+  color: #1c4086;
+  text-shadow: 0 1px 0 #000;
 }
 
 .title {
+  margin-top: 10px;
   text-align: center;
 }
