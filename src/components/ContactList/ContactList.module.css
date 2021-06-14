@@ -5,11 +5,9 @@
   font-weight: 500;
 }
 
-.buttonContacts {
-  width: 50px;
-  font-weight: 300;
-  text-align: center;
-  padding: 0;
-  margin: 5px;
-  margin-left: 10px;
+.button {
+  width: 75px;
+  height: 25px;
+  margin: 20px;
+  font-size: small;
 }

@@ -1,5 +1,5 @@
 .itemLink {
-  display: flex;
-  justify-content: start;
+  /* display: flex-start; */
+  /* justify-content: start; */
   align-items: baseline;
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import style from './ContactForm.module.css';
 import { v4 as uuidv4 } from 'uuid';
 import { connect } from 'react-redux';
-// import Loader from '../Loader/Loader';
+import Loader from '../Loader/Loader';
 import { contactsOperations, contactsSelectors } from '../../redux/contacts';
 
 class ContactForm extends Component {
@@ -72,7 +72,7 @@ class ContactForm extends Component {
               onChange={this.handleChange}
             />
           </label>
-          {/* {this.props.isLoadingContacts && <Loader />} */}
+          {this.props.isLoadingContacts && <Loader />}
           <button className={style.button} type="submit">
             Add contact
           </button>
